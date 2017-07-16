@@ -1,13 +1,17 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { chatReducer } from '../components/containers/Chat';
 import { chatMiddleware } from '../middleware/chat.middleware';
+import { countDownReducer } from '../components/CountDown';
+import { backlogReducer } from '../ducks/backlog.duck';
+import { currentStoryReducer } from '../ducks/currentStory.duck';
 
 const middlewares = [
   chatMiddleware,
 ];
 
 const reducers = combineReducers({
-  chat: chatReducer
+  countDown: countDownReducer,
+  backlog: backlogReducer,
+  currentStory: currentStoryReducer,
 });
 
 const store = createStore(
